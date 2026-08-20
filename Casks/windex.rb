@@ -1,8 +1,8 @@
 # Cask template. The release workflow fills in the version and checksum and
 # commits the result to SoccerGee/homebrew-tap as Casks/windex.rb.
 cask "windex" do
-  version "0.1.0"
-  sha256 "d8274c7fb3003e28334b17fa47b04abd6a45f79a4a942fe8b77cf3bc8439d3c9"
+  version "0.1.1"
+  sha256 "e0af3f44b6c6122aa38c92d980a1fe585ed6b32c774d3535650fe4a146038b42"
 
   url "https://github.com/SoccerGee/windex/releases/download/v#{version}/Windex-#{version}.dmg"
   name "Windex"
