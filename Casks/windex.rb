@@ -1,0 +1,38 @@
+# Cask template. The release workflow fills in the version and checksum and
+# commits the result to SoccerGee/homebrew-tap as Casks/windex.rb.
+cask "windex" do
+  version "0.1.0"
+  sha256 "d8274c7fb3003e28334b17fa47b04abd6a45f79a4a942fe8b77cf3bc8439d3c9"
+
+  url "https://github.com/SoccerGee/windex/releases/download/v#{version}/Windex-#{version}.dmg"
+  name "Windex"
+  desc "Window manager with grid-based snapping and smooth animations"
+  homepage "https://github.com/SoccerGee/windex"
+
+  depends_on macos: ">= :big_sur"
+
+  app "Windex.app"
+
+  uninstall quit:       "com.granttuttle.windex",
+            launchctl:  "com.granttuttle.windex"
+
+  zap trash: [
+    "~/Library/Application Support/windex",
+    "~/Library/LaunchAgents/com.granttuttle.windex.plist",
+    "~/Library/Logs/windex.log",
+  ]
+
+  caveats <<~EOS
+    Windex is not notarized, so it must be installed with:
+
+      brew install --cask --no-quarantine soccergee/tap/windex
+
+    If you installed without --no-quarantine, macOS will refuse to open it.
+    Clear the flag with:
+
+      xattr -dr com.apple.quarantine "#{appdir}/Windex.app"
+
+    On first launch, grant Accessibility access in
+    System Settings → Privacy & Security → Accessibility.
+  EOS
+end
