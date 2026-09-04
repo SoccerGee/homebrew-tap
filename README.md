@@ -13,7 +13,7 @@ line is what lets macOS open it. See https://github.com/SoccerGee/windex
 Encrypted IRC-style terminal chat with peer-to-peer file transfer. Homebrew
 verifies the tarball against the sha256 pinned in the formula, so no
 quarantine step is needed. Linux users have an installer instead; see
-https://dl.granttuttle.com.
+https://hush.granttuttle.com.
 
 Release manifests are signed with this OpenSSH key. The Linux installer
 carries the same key on its `RELEASE_PUBKEY=` line; compare the two if you
